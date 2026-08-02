@@ -27,7 +27,7 @@ export default function Hero() {
         <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mt-12">
 
           <a
-            href="#contact"
+            href="https://t.me/STOCK_LEARNER_official"
             className="relative overflow-hidden rounded-xl bg-gradient-to-r from-green-500 to-lime-400 px-10 py-4 text-lg font-bold text-white transition-all duration-300 hover:scale-110 animate-pulse shadow-[0_0_30px_#22c55e]"
           >
             🚀 Join Now
