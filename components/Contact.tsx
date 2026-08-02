@@ -14,7 +14,9 @@ export default function Contact() {
         <div className="flex flex-wrap justify-center gap-6 mt-10">
 
           <a
-            href="https://t.me/STOCK_LEARNER_official""
+            href="https://t.me/STOCK_LEARNER_official"
+            target="_blank"
+            rel="noopener noreferrer"
             className="bg-green-500 hover:bg-green-600 px-8 py-4 rounded-xl text-white font-bold text-lg transition"
           >
             Join Telegram
@@ -22,6 +24,8 @@ export default function Contact() {
 
           <a
             href="https://wa.me/919999999999"
+            target="_blank"
+            rel="noopener noreferrer"
             className="border border-white hover:bg-white hover:text-black px-8 py-4 rounded-xl text-white font-bold text-lg transition"
           >
             WhatsApp
