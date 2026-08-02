@@ -23,7 +23,7 @@ export default function Navbar() {
 
         {/* Animated Join Button */}
         <a
-          href="#contact"
+          href="https://t.me/STOCK_LEARNER_official"
           className="relative inline-flex items-center justify-center px-7 py-3 font-bold text-white rounded-xl
           bg-green-500 hover:bg-green-400
           transition-all duration-300
