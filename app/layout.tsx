@@ -16,6 +16,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "StocksLearner",
   description: "Professional Trading & Account Management",
+  verification: {
+    google: "0Nvm-72By-7BTfrCcyD1M0C_2ddyul5IKPb_dXBOFAE",
+  },
 };
 
 export default function RootLayout({
