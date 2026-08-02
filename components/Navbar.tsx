@@ -18,12 +18,22 @@ export default function Navbar() {
           <a href="#process" className="hover:text-green-400 transition">Process</a>
           <a href="#reviews" className="hover:text-green-400 transition">Reviews</a>
           <a href="#faq" className="hover:text-green-400 transition">FAQ</a>
-          <a href="#contact" className="hover:text-green-400 transition">Contact</a>
+
+          <a
+            href="https://t.me/STOCK_LEARNER_official"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-green-400 transition"
+          >
+            Contact
+          </a>
         </nav>
 
         {/* Animated Join Button */}
         <a
           href="https://t.me/STOCK_LEARNER_official"
+          target="_blank"
+          rel="noopener noreferrer"
           className="relative inline-flex items-center justify-center px-7 py-3 font-bold text-white rounded-xl
           bg-green-500 hover:bg-green-400
           transition-all duration-300
