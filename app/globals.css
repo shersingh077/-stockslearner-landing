@@ -19,8 +19,90 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}/* Smooth transition */
+
+a,
+button,
+input,
+textarea{
+  transition:all .25s ease-in-out;
+}
+
+/* Responsive Images */
+
+img{
+  display:block;
+  max-width:100%;
+  height:auto;
+}
+
+/* Better Text Selection */
+
+::selection{
+  background:#2563eb;
+  color:#fff;
+}
+
+/* Premium Scrollbar */
+
+::-webkit-scrollbar{
+  width:8px;
+}
+
+::-webkit-scrollbar-track{
+  background:#f1f5f9;
+}
+
+::-webkit-scrollbar-thumb{
+  background:linear-gradient(180deg,#3b82f6,#2563eb);
+  border-radius:999px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background:#1d4ed8;
+}
+
+/* Smooth Focus */
+
+button:focus,
+a:focus,
+input:focus,
+textarea:focus{
+  outline:none;
+}
+
+/* Glass Effect */
+
+.glass{
+  background:rgba(255,255,255,.75);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+}
+
+/* Premium Shadow */
+
+.shadow-premium{
+  box-shadow:
+    0 10px 30px rgba(37,99,235,.08),
+    0 2px 10px rgba(15,23,42,.06);
+}
+
+/* Hover Lift */
+
+.hover-lift{
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+
+.hover-lift:hover{
+  transform:translateY(-6px);
+  box-shadow:0 20px 40px rgba(37,99,235,.15);
 }

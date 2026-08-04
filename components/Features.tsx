@@ -1,51 +1,102 @@
 export default function Features() {
   const features = [
     {
-      title: "Professional Account Management",
-      desc: "Experienced traders manage your account with disciplined strategies.",
+      icon: "📈",
+      title: "Stock Market Learning",
+      desc: "Learn technical analysis, chart reading and trading concepts from beginner to advanced level.",
     },
     {
+      icon: "📊",
+      title: "Market Analysis",
+      desc: "Daily educational market analysis to help you understand market movements and trends.",
+    },
+    {
+      icon: "🛡️",
       title: "Risk Management",
-      desc: "Every trade follows strict risk management rules to protect capital.",
+      desc: "Understand capital protection and disciplined trading through proper risk management.",
     },
     {
-      title: "Daily Market Analysis",
-      desc: "Get regular updates, market insights and trading opportunities.",
+      icon: "🎯",
+      title: "Trading Psychology",
+      desc: "Develop discipline, patience and emotional control for long-term success.",
     },
     {
-      title: "Transparent Communication",
-      desc: "Stay informed with clear reports and regular performance updates.",
+      icon: "👨‍💻",
+      title: "Community Support",
+      desc: "Join an active community of learners and stay updated with educational content.",
+    },
+    {
+      icon: "🚀",
+      title: "Continuous Learning",
+      desc: "Regular educational content, market insights and practical learning resources.",
     },
   ];
 
   return (
-    <section className="bg-slate-900 py-20 px-6">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl font-bold text-center text-white">
-          Why Choose Our Service
-        </h2>
+    <section
+      id="services"
+      className="bg-white py-28 px-6"
+    >
+      <div className="max-w-7xl mx-auto">
 
-        <p className="text-center text-gray-400 mt-4">
-          Professional trading with disciplined risk management.
-        </p>
+        <div className="text-center">
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-          {features.map((item, index) => (
+          <span className="inline-flex rounded-full bg-blue-100 text-blue-700 px-5 py-2 font-semibold">
+            Why StocksLearner
+          </span>
+
+          <h2 className="mt-6 text-5xl font-extrabold text-slate-900">
+
+            Learn Smarter With
+
+            <span className="text-blue-600">
+              {" "}StocksLearner
+            </span>
+
+          </h2>
+
+          <p className="mt-6 max-w-3xl mx-auto text-lg text-slate-600">
+
+            Professional stock market education with structured learning,
+            market insights and practical risk management.
+
+          </p>
+
+        </div>
+
+        <div className="grid gap-8 mt-20 md:grid-cols-2 lg:grid-cols-3">          {features.map((item, index) => (
+
             <div
               key={index}
-              className="bg-slate-800 rounded-xl p-6 border border-slate-700 hover:border-green-500 transition"
+              className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-blue-500 hover:shadow-2xl"
             >
-              <h3 className="text-xl font-bold text-white mb-3">
+
+              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-50 text-4xl">
+
+                {item.icon}
+
+              </div>
+
+              <h3 className="mt-6 text-2xl font-bold text-slate-900">
+
                 {item.title}
+
               </h3>
 
-              <p className="text-gray-400">
+              <p className="mt-4 leading-7 text-slate-600">
+
                 {item.desc}
+
               </p>
+
             </div>
+
           ))}
+
         </div>
+
       </div>
+
     </section>
   );
 }

@@ -2,52 +2,94 @@ export default function Testimonials() {
   const reviews = [
     {
       name: "Rahul Sharma",
-      text: "Excellent account management service. My experience has been very professional.",
+      role: "Stock Market Learner",
+      text: "Excellent learning experience. The market analysis and educational content are easy to understand.",
     },
     {
       name: "Priya Verma",
-      text: "Risk management is amazing. Every trade is handled with discipline.",
+      role: "Telegram Member",
+      text: "Daily updates and risk management concepts have improved my confidence in the stock market.",
     },
     {
       name: "Amit Singh",
-      text: "Daily market updates and transparent communication. Highly recommended.",
+      role: "Community Member",
+      text: "Professional guidance, transparent communication and quality educational content.",
     },
   ];
 
   return (
-    <section className="bg-[#081526] py-20 px-6">
-      <div className="max-w-6xl mx-auto">
+    <section
+      id="reviews"
+      className="bg-white py-28 px-6"
+    >
+      <div className="max-w-7xl mx-auto">
 
-        <h2 className="text-4xl font-bold text-center text-white">
-          What Our Clients Say
-        </h2>
+        <div className="text-center">
 
-        <p className="text-center text-gray-400 mt-4">
-          Trusted by traders across India
-        </p>
+          <span className="inline-flex rounded-full bg-blue-100 text-blue-700 px-5 py-2 font-semibold">
+            Testimonials
+          </span>
 
-        <div className="grid md:grid-cols-3 gap-6 mt-12">
-          {reviews.map((review, index) => (
+          <h2 className="mt-6 text-5xl font-extrabold text-slate-900">
+
+            What Our
+
+            <span className="text-blue-600">
+              {" "}Community Says
+            </span>
+
+          </h2>
+
+          <p className="mt-6 max-w-3xl mx-auto text-lg text-slate-600">
+
+            Trusted by learners across India for quality education,
+            market insights and disciplined learning.
+
+          </p>
+
+        </div>
+
+        <div className="grid gap-8 mt-20 md:grid-cols-2 lg:grid-cols-3">          {reviews.map((review, index) => (
+
             <div
               key={index}
-              className="bg-[#10284f] border border-blue-700 rounded-xl p-8"
+              className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-blue-500 hover:shadow-2xl"
             >
-              <div className="text-yellow-400 text-2xl mb-4">
+
+              <div className="text-yellow-400 text-2xl">
                 ⭐⭐⭐⭐⭐
               </div>
 
-              <p className="text-gray-300 italic">
+              <p className="mt-6 leading-7 italic text-slate-600">
+
                 "{review.text}"
+
               </p>
 
-              <h3 className="mt-6 text-white font-bold text-lg">
-                {review.name}
-              </h3>
+              <div className="mt-8">
+
+                <h3 className="text-xl font-bold text-slate-900">
+
+                  {review.name}
+
+                </h3>
+
+                <p className="mt-1 text-sm font-medium text-blue-600">
+
+                  {review.role}
+
+                </p>
+
+              </div>
+
             </div>
+
           ))}
+
         </div>
 
       </div>
+
     </section>
   );
 }
