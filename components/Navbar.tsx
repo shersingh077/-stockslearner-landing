@@ -27,7 +27,7 @@ export default function Navbar() {
   className="flex items-center gap-3"
 >
   <img
-    src="/logo.png"
+    src="/logo.jpeg?v=2"
     alt="StocksLearner"
     className="h-12 w-12 rounded-xl shadow-lg"
   />
