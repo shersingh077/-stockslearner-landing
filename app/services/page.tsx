@@ -79,7 +79,7 @@ export default function ServicesPage() {
         <div className="text-center mt-20">
 
           <a
-            href="https://t.me/STOCK_LEARNER_official"
+            href="https://t.me/https://t.me/+q1uO_JMMmfIwNDE1"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center px-10 py-4 rounded-xl bg-green-500 hover:bg-green-400 text-white text-lg font-bold transition-all duration-300 hover:scale-105 shadow-[0_0_20px_#22c55e]"

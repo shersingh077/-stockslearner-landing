@@ -70,7 +70,7 @@ export default function Footer() {
             <p className="mb-6 text-slate-400">
               Join our official Telegram community.
             </p>            <a
-              href="https://t.me/STOCK_LEARNER_official"
+              href="https://t.me/+q1uO_JMMmfIwNDE1"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex rounded-xl bg-blue-600 px-8 py-4 font-bold text-white transition-all duration-300 hover:scale-105 hover:bg-blue-700 shadow-lg shadow-blue-500/20"

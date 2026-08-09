@@ -53,7 +53,7 @@ export default function Hero() {
             <div className="mt-12 flex flex-wrap gap-5">
 
               <a
-                href="https://t.me/STOCK_LEARNER_official"
+                href="https://t.me/+q1uO_JMMmfIwNDE1"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="rounded-xl bg-blue-600 hover:bg-blue-700 px-8 py-4 text-lg font-bold text-white transition-all duration-300 shadow-xl shadow-blue-500/30"

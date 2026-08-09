@@ -28,7 +28,7 @@ export default function Contact() {
         </p>
 
         <div className="mt-14 flex flex-col sm:flex-row justify-center gap-5">          <a
-            href="https://t.me/STOCK_LEARNER_official"
+            href="https://t.me/+q1uO_JMMmfIwNDE1"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-10 py-4 text-lg font-bold text-white transition-all duration-300 hover:scale-105 hover:bg-blue-700 shadow-lg shadow-blue-500/20"
