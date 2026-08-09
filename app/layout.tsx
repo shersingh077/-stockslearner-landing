@@ -14,8 +14,66 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "StocksLearner",
-  description: "Professional Trading & Account Management",
+  metadataBase: new URL("https://stockslearner.online"),
+
+  title: {
+    default: "StocksLearner – Stock Market Learning & Trading Education",
+    template: "%s | StocksLearner",
+  },
+
+  description:
+    "StocksLearner पर Stock Market, Trading, Technical Analysis, Risk Management और Trading Psychology आसान भाषा में सीखें।",
+
+  keywords: [
+    "StocksLearner",
+    "Stock Learner",
+    "stock market",
+    "stock market learning",
+    "trading education",
+    "technical analysis",
+    "trading psychology",
+    "risk management",
+  ],
+
+  authors: [{ name: "StocksLearner" }],
+  creator: "StocksLearner",
+  publisher: "StocksLearner",
+
+  alternates: {
+    canonical: "https://stockslearner.online/",
+  },
+
+  openGraph: {
+    title: "StocksLearner – Stock Market Learning & Trading Education",
+    description:
+      "StocksLearner पर Stock Market, Trading और Technical Analysis आसान भाषा में सीखें।",
+    url: "https://stockslearner.online/",
+    siteName: "StocksLearner",
+    images: [
+      {
+        url: "/logo.jpeg",
+        width: 512,
+        height: 512,
+        alt: "StocksLearner Logo",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "StocksLearner",
+    description:
+      "Learn Stock Market, Trading, Technical Analysis and Risk Management with StocksLearner.",
+    images: ["/logo.jpeg"],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
   verification: {
     google: "0Nvm-72By-7BTfrCcyD1M0C_2ddyul5IKPb_dXBOFAE",
   },
