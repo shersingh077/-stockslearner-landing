@@ -1,3 +1,11 @@
+"use client";
+
+declare global {
+  interface Window {
+    fbq?: (...args: any[]) => void;
+  }
+}
+
 export default function Hero() {
   return (
     <section
@@ -56,6 +64,11 @@ export default function Hero() {
                 href="https://t.me/+q1uO_JMMmfIwNDE1"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => {
+                  if (typeof window !== "undefined" && typeof window.fbq === "function") {
+                    window.fbq("track", "Lead");
+                  }
+                }}
                 className="rounded-xl bg-blue-600 hover:bg-blue-700 px-8 py-4 text-lg font-bold text-white transition-all duration-300 shadow-xl shadow-blue-500/30"
               >
                 🚀 Join Telegram
