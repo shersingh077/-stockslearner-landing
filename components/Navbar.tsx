@@ -67,7 +67,7 @@ export default function Navbar() {
         {/* Join Button */}
 
         <a
-          href="https://t.me/STOCK_LEARNER_official"
+          href="https://t.me/+q1uO_JMMmfIwNDE1"
           target="_blank"
           rel="noopener noreferrer"
           className="hidden md:inline-flex items-center justify-center rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 transition-all duration-300 shadow-lg shadow-blue-500/20"
@@ -108,7 +108,7 @@ export default function Navbar() {
             <div className="px-6 pt-4">
 
               <a
-                href="https://t.me/STOCK_LEARNER_official"
+                href="https://t.me/+q1uO_JMMmfIwNDE1"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMenuOpen(false)}
