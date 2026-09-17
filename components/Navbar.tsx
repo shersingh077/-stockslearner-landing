@@ -13,6 +13,8 @@ export default function Navbar() {
     { name: "Reviews", href: "#reviews" },
     { name: "FAQ", href: "#faq" },
     { name: "Contact", href: "#contact" },
+    { name: "💰 Investment Plans", href: "/investment" },
+    { name: "💬 Help & Contact", href: "/chat" },
   ];
 
   return (
@@ -48,19 +50,27 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
 
-        <nav className="hidden md:flex items-center gap-8 text-slate-700 font-medium">
+        <nav className="hidden md:flex items-center gap-6 text-slate-700 font-medium">
 
-          {navLinks.map((item) => (
+          {navLinks.map((item) => {
 
-            <a
-              key={item.name}
-              href={item.href}
-              className="hover:text-blue-600 transition-all duration-300"
-            >
-              {item.name}
-            </a>
+            const isInvestment = item.name === "💰 Investment Plans";
 
-          ))}
+            return (
+              <a
+                key={item.name}
+                href={item.href}
+                className={
+                  isInvestment
+                    ? "inline-flex items-center justify-center rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-3 transition-all duration-300 shadow-lg shadow-blue-500/30"
+                    : "hover:text-blue-600 transition-all duration-300"
+                }
+              >
+                {item.name}
+              </a>
+            );
+
+          })}
 
         </nav>
 
