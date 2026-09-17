@@ -2,6 +2,7 @@
 
 import { FormEvent, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
 type Message = {
   id: string;
@@ -14,7 +15,7 @@ type Message = {
   message_type?: string;
 };
 
-export default function ChatPage() {
+function ChatContent() {
   const searchParams = useSearchParams();
 
   const [messages, setMessages] = useState<Message[]>([]);
@@ -335,5 +336,21 @@ export default function ChatPage() {
         </div>
       </div>
     </main>
+  );
+}
+
+export default function ChatPage() {
+  return (
+    <Suspense
+      fallback={
+        <main className="min-h-screen bg-slate-950 px-4 py-8 text-white">
+          <div className="mx-auto max-w-2xl text-center text-slate-400">
+            Loading chat...
+          </div>
+        </main>
+      }
+    >
+      <ChatContent />
+    </Suspense>
   );
 }

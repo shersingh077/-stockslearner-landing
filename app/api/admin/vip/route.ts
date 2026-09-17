@@ -26,7 +26,6 @@ function isAdmin(token?: string) {
 
 export async function POST(request: Request) {
   try {
-    const contentType = request.headers.get("content-type") || "";
     const cookieStore = await cookies();
     const token = cookieStore.get("admin_session")?.value;
 

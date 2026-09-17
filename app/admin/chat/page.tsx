@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 type Client = {
@@ -39,7 +39,7 @@ const investmentPlans = [
   { id: "500000", amount: 500000, returnAmount: "₹10,00,000 – ₹30,00,000" },
 ];
 
-export default function AdminChatPage() {
+function AdminChatContent() {
   const searchParams = useSearchParams();
 
   const [clients, setClients] = useState<Client[]>([]);
@@ -703,5 +703,21 @@ export default function AdminChatPage() {
         </div>
       </div>
     </main>
+  );
+}
+
+export default function AdminChatPage() {
+  return (
+    <Suspense
+      fallback={
+        <main className="min-h-screen bg-slate-950 px-4 py-8 text-white">
+          <div className="mx-auto max-w-4xl text-center text-slate-400">
+            Loading admin chat...
+          </div>
+        </main>
+      }
+    >
+      <AdminChatContent />
+    </Suspense>
   );
 }
