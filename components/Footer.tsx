@@ -65,6 +65,13 @@ export default function Footer() {
                 Learning Guides
               </Link>
 
+              <Link
+                href="/calculators"
+                className="transition hover:text-blue-400"
+              >
+                Calculators
+              </Link>
+
               <Link href="/privacy" className="transition hover:text-blue-400">
                 Privacy Policy
               </Link>

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -14,6 +15,7 @@ export default function Navbar() {
     { name: "FAQ", href: "#faq" },
     { name: "Contact", href: "#contact" },
     { name: "Learning Guides", href: "/learn" },
+    { name: "Calculators", href: "/calculators" },
     { name: "💰 Investment Plans", href: "/investment" },
     { name: "💬 Help & Contact", href: "/chat" },
   ];
@@ -29,9 +31,11 @@ export default function Navbar() {
   href="#home"
   className="flex items-center gap-3"
 >
-  <img
-    src="/logo.jpeg?v=2"
+  <Image
+    src="/logo.jpeg"
     alt="StockLearners"
+    width={48}
+    height={48}
     className="h-12 w-12 rounded-xl shadow-lg"
   />
 
