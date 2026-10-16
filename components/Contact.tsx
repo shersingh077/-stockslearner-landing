@@ -27,13 +27,23 @@ export default function Contact() {
 
         </p>
 
-        <div className="mt-14 flex flex-col sm:flex-row justify-center gap-5">          <a
+        <div className="mt-14 flex flex-col justify-center gap-5 sm:flex-row">
+          <a
             href="https://t.me/+q1uO_JMMmfIwNDE1"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-10 py-4 text-lg font-bold text-white transition-all duration-300 hover:scale-105 hover:bg-blue-700 shadow-lg shadow-blue-500/20"
           >
             🚀 Join Telegram
+          </a>
+
+          <a
+            href="https://t.me/prime_stocks"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-xl border border-slate-300 px-10 py-4 text-lg font-semibold text-slate-800 transition-all duration-300 hover:bg-slate-900 hover:text-white"
+          >
+            Contact @prime_stocks
           </a>
 
           <a

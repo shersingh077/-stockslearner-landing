@@ -154,6 +154,14 @@ export default function Footer() {
             >
               🚀 Join Telegram
             </a>
+            <a
+              href="https://t.me/prime_stocks"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-3 inline-flex text-sky-300 underline underline-offset-4 transition hover:text-white"
+            >
+              Contact @prime_stocks
+            </a>
 
           </div>
 

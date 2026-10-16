@@ -25,7 +25,15 @@ export default function ContactPage() {
           rel="noopener noreferrer"
           className="mt-8 inline-flex rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-500"
         >
-          Contact on Telegram
+          Join Telegram community
+        </a>
+        <a
+          href="https://t.me/prime_stocks"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4 inline-flex rounded-xl border border-slate-600 px-6 py-3 font-semibold text-white hover:bg-slate-800"
+        >
+          Contact @prime_stocks on Telegram
         </a>
         <p className="mt-8 text-sm leading-6 text-slate-400">
           For privacy questions, see our{" "}
