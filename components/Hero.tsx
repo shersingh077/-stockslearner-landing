@@ -37,22 +37,15 @@ export default function Hero() {
             </span>
 
             <h1 className="mt-8 text-5xl md:text-7xl font-extrabold leading-tight text-white">
-
-              Learn The
-
-              <span className="block text-sky-400">
-                Stock Market
-              </span>
-
-              With Confidence
-
+              Learn the Stock Market with{" "}
+              <span className="text-sky-400">StockLearners</span>
             </h1>
 
             <p className="mt-8 max-w-2xl text-xl leading-9 text-slate-300">
 
               Learn technical analysis, risk management,
               trading psychology and daily market insights
-              with StocksLearner.
+              with StockLearners.
 
             </p>
 

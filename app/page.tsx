@@ -25,7 +25,10 @@ export default function Home() {
             </h2>
 
             <p className="mx-auto mt-4 max-w-2xl text-slate-400">
-              VIP Membership plans देखें और अपनी membership के लिए Admin से सीधे chat करें।
+              VIP Membership plans{" "}
+              <span lang="hi">
+                देखें और अपनी membership के लिए Admin से सीधे chat करें।
+              </span>
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-3">

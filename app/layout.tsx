@@ -3,6 +3,8 @@ import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
+const siteUrl = "https://stockslearner.online";
+
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -13,48 +15,64 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "StockLearners",
+  alternateName: ["Stock Learners", "Stock Learner"],
+  url: siteUrl,
+  logo: `${siteUrl}/logo.jpeg`,
+};
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://stockslearner.online"),
+  metadataBase: new URL(siteUrl),
+  applicationName: "StockLearners",
 
   title: {
-    default: "StocksLearner – Stock Market Learning & Trading Education",
-    template: "%s | StocksLearner",
+    default: "StockLearners - Learn Stock Market, SIP Plans, Live News & Research",
+    template: "%s | StockLearners",
   },
 
   description:
-    "StocksLearner पर Stock Market, Trading, Technical Analysis, Risk Management और Trading Psychology आसान भाषा में सीखें।",
+    "StockLearners helps you learn stock market in Hindi and English, explore SIP plans, follow live market news, and understand research and risk management in India.",
 
   keywords: [
-    "StocksLearner",
-    "Stock Learner",
+    "stocklearners",
+    "stock learners",
+    "stock learner",
+    "stock learning India",
+    "learn stock market in Hindi",
     "stock market",
     "stock market learning",
+    "SIP plans",
+    "live stock market news",
+    "stock market research",
     "trading education",
     "technical analysis",
     "trading psychology",
     "risk management",
   ],
 
-  authors: [{ name: "StocksLearner" }],
-  creator: "StocksLearner",
-  publisher: "StocksLearner",
+  authors: [{ name: "StockLearners" }],
+  creator: "StockLearners",
+  publisher: "StockLearners",
 
   alternates: {
-    canonical: "https://stockslearner.online/",
+    canonical: siteUrl,
   },
 
   openGraph: {
-    title: "StocksLearner – Stock Market Learning & Trading Education",
+    title: "StockLearners - Learn Stock Market, SIP Plans, Live News & Research",
     description:
-      "StocksLearner पर Stock Market, Trading और Technical Analysis आसान भाषा में सीखें।",
-    url: "https://stockslearner.online/",
-    siteName: "StocksLearner",
+      "Learn stock market in Hindi and English with StockLearners. Explore SIP plans, live news, research, and risk management.",
+    url: siteUrl,
+    siteName: "StockLearners",
     images: [
       {
         url: "/logo.jpeg",
         width: 512,
         height: 512,
-        alt: "StocksLearner Logo",
+        alt: "StockLearners Logo",
       },
     ],
     locale: "en_IN",
@@ -63,9 +81,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "StocksLearner",
+    title: "StockLearners - Learn Stock Market, SIP Plans, Live News & Research",
     description:
-      "Learn Stock Market, Trading, Technical Analysis and Risk Management with StocksLearner.",
+      "Learn stock market in Hindi and English with StockLearners. Explore SIP plans, live news, and market research.",
     images: ["/logo.jpeg"],
   },
 
@@ -86,10 +104,17 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="en-IN"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(organizationSchema).replace(/</g, "\\u003c"),
+          }}
+        />
+
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-S74LMKD309"

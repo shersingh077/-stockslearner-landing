@@ -1,9 +1,9 @@
 export default function FAQ() {
   const faqs = [
     {
-      question: "What is StocksLearner?",
+      question: "What is StockLearners?",
       answer:
-        "StocksLearner is a stock market learning platform that provides educational content, market insights and trading knowledge.",
+        "StockLearners is a stock market learning platform that provides educational content, market insights and trading knowledge.",
     },
     {
       question: "Who can join?",
@@ -21,7 +21,7 @@ export default function FAQ() {
         "Yes. Trading and investing involve risk. Always manage your capital carefully and never trade without proper knowledge.",
     },
     {
-      question: "How do I contact StocksLearner?",
+      question: "How do I contact StockLearners?",
       answer:
         "You can connect with us anytime through our official Telegram community.",
     },
@@ -56,7 +56,7 @@ export default function FAQ() {
           </h2>
 
           <p className="mt-6 text-lg text-slate-600">
-            Everything you need to know before joining the StocksLearner community.
+            Everything you need to know before joining the StockLearners community.
           </p>
 
         </div>

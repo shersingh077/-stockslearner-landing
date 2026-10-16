@@ -11,7 +11,7 @@ export default function Footer() {
           <div>
 
             <h2 className="text-3xl font-extrabold text-blue-500">
-              StocksLearner
+              StockLearners
             </h2>
 
             <p className="mt-5 leading-7 text-slate-400">
@@ -55,6 +55,10 @@ export default function Footer() {
                 Contact
               </a>
 
+              <a href="/about" className="transition hover:text-blue-400">
+                About StockLearners
+              </a>
+
             </div>
 
           </div>
@@ -85,7 +89,7 @@ export default function Footer() {
         <div className="mt-14 border-t border-slate-800 pt-8 text-center">
 
           <p className="text-slate-500">
-            © 2026 StocksLearner. All Rights Reserved.
+            © 2026 StockLearners. All Rights Reserved.
           </p>
 
         </div>

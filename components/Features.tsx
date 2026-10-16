@@ -42,7 +42,7 @@ export default function Features() {
         <div className="text-center">
 
           <span className="inline-flex rounded-full bg-blue-100 text-blue-700 px-5 py-2 font-semibold">
-            Why StocksLearner
+            Why StockLearners
           </span>
 
           <h2 className="mt-6 text-5xl font-extrabold text-slate-900">
@@ -50,7 +50,7 @@ export default function Features() {
             Learn Smarter With
 
             <span className="text-blue-600">
-              {" "}StocksLearner
+              {" "}StockLearners
             </span>
 
           </h2>

@@ -30,14 +30,14 @@ export default function Navbar() {
 >
   <img
     src="/logo.jpeg?v=2"
-    alt="StocksLearner"
+    alt="StockLearners"
     className="h-12 w-12 rounded-xl shadow-lg"
   />
 
   <div>
 
     <h2 className="text-2xl font-extrabold text-blue-600 leading-none">
-      StocksLearner
+      StockLearners
     </h2>
 
     <p className="text-[11px] text-slate-500 tracking-widest uppercase">

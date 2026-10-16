@@ -15,7 +15,7 @@ export default function Contact() {
           Ready To Join
 
           <span className="text-blue-600">
-            {" "}StocksLearner?
+            {" "}StockLearners?
           </span>
 
         </h2>

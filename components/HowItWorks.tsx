@@ -4,7 +4,7 @@ export default function HowItWorks() {
       number: "01",
       icon: "🚀",
       title: "Join Community",
-      desc: "Become part of the StocksLearner community and receive educational market updates.",
+      desc: "Become part of the StockLearners community and receive educational market updates.",
     },
     {
       number: "02",

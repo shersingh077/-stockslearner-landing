@@ -48,7 +48,7 @@ export default function VipPage() {
           </h1>
 
           <p className="mx-auto mt-4 max-w-2xl text-slate-400">
-            Get access to exclusive StocksLearner VIP benefits and premium
+            Get access to exclusive StockLearners VIP benefits and premium
             services.
           </p>
         </div>

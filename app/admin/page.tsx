@@ -80,7 +80,7 @@ export default async function AdminPage() {
         <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h1 className="text-3xl font-bold">
-              StocksLearner Admin Panel
+              StockLearners Admin Panel
             </h1>
 
             <p className="mt-2 text-slate-400">
@@ -316,7 +316,7 @@ function AdminLogin() {
           </h1>
 
           <p className="mt-3 text-slate-400">
-            StocksLearner Administration
+            StockLearners Administration
           </p>
         </div>
 
