@@ -2,7 +2,7 @@
 
 declare global {
   interface Window {
-    fbq?: (...args: any[]) => void;
+    fbq?: (...args: string[]) => void;
   }
 }
 
@@ -32,7 +32,7 @@ export default function Hero() {
 
             <span className="inline-flex items-center rounded-full border border-blue-400/30 bg-blue-500/10 px-5 py-2 text-sm font-semibold text-blue-200">
 
-              🚀 India's Trusted Stock Market Learning Community
+              Stock market learning for India
 
             </span>
 
@@ -43,9 +43,8 @@ export default function Hero() {
 
             <p className="mt-8 max-w-2xl text-xl leading-9 text-slate-300">
 
-              Learn technical analysis, risk management,
-              trading psychology and daily market insights
-              with StockLearners.
+              Explore stock market fundamentals, risk awareness, and
+              educational market insights with StockLearners.
 
             </p>
 
@@ -68,12 +67,10 @@ export default function Hero() {
               </a>
 
               <a
-                href="https://wa.me/919999999999"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/contact"
                 className="rounded-xl border border-white/30 px-8 py-4 text-lg font-semibold text-white hover:bg-white hover:text-black transition-all duration-300"
               >
-                💬 WhatsApp
+                Contact StockLearners
               </a>
 
             </div>
@@ -83,7 +80,7 @@ export default function Hero() {
             <div className="mt-12 flex flex-wrap gap-6 text-sm text-slate-300">
 
               <div className="flex items-center gap-2">
-                ✅ Daily Market Updates
+                ✅ Market Learning
               </div>
 
               <div className="flex items-center gap-2">
@@ -109,7 +106,7 @@ export default function Hero() {
                 <div>
 
                   <p className="text-slate-300 text-sm">
-                    Today's Market
+                    Today&apos;s Market
                   </p>
 
                   <h3 className="mt-2 text-3xl font-bold text-white">
@@ -118,50 +115,21 @@ export default function Hero() {
 
                 </div>
 
-                <div className="rounded-full bg-green-500/20 px-4 py-2 text-green-300 font-semibold">
-                  LIVE
+                <div className="rounded-full bg-slate-700 px-4 py-2 text-slate-300 font-semibold">
+                  Education
                 </div>
 
               </div>
 
-              <div className="mt-10 space-y-6">
-
-                <div className="flex justify-between border-b border-white/10 pb-4">
-
-                  <span className="text-slate-300">
-                    NIFTY 50
-                  </span>
-
-                  <span className="font-bold text-sky-400">
-                    +1.24%
-                  </span>
-
-                </div>
-
-                <div className="flex justify-between border-b border-white/10 pb-4">
-
-                  <span className="text-slate-300">
-                    SENSEX
-                  </span>
-
-                  <span className="font-bold text-sky-400">
-                    +0.82%
-                  </span>
-
-                </div>
-
-                <div className="flex justify-between">
-
-                  <span className="text-slate-300">
-                    BANK NIFTY
-                  </span>
-
-                  <span className="font-bold text-sky-400">
-                    +1.65%
-                  </span>
-
-                </div>
-
+              <div className="mt-10 space-y-4">
+                <p className="rounded-xl border border-white/10 bg-slate-950/40 p-4 text-sm leading-6 text-slate-300">
+                  Learn how market indices, company news and risk factors work.
+                  Live quotes are not connected yet.
+                </p>
+                <p className="text-xs leading-5 text-slate-400">
+                  Educational purpose only. Not investment advice. Markets are
+                  subject to risk.
+                </p>
               </div>
 
               <div className="mt-10 rounded-2xl bg-gradient-to-r from-blue-600 via-sky-500 to-cyan-400 p-10 flex items-center justify-center">
@@ -182,53 +150,22 @@ export default function Hero() {
 
         <div className="mt-24 grid grid-cols-2 lg:grid-cols-4 gap-6">
 
-          <div className="rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-6 text-center">
-
-            <h2 className="text-4xl font-extrabold text-sky-400">
-              15K+
-            </h2>
-
-            <p className="mt-2 text-slate-300">
-              Community Members
+          {[
+          ["Market Basics", "Understand exchanges, indices and orders"],
+          ["IPO Education", "Learn issue terminology and risk factors"],
+          ["SIP Concepts", "Understand recurring mutual fund investing"],
+          ["Risk Awareness", "Study costs, volatility and uncertainty"],
+          ].map(([title, description]) => (
+          <div
+            key={title}
+            className="rounded-2xl border border-white/10 bg-white/10 p-6 text-center backdrop-blur-xl"
+          >
+            <h2 className="text-xl font-extrabold text-sky-400">{title}</h2>
+            <p className="mt-2 text-sm leading-6 text-slate-300">
+              {description}
             </p>
-
           </div>
-
-          <div className="rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-6 text-center">
-
-            <h2 className="text-4xl font-extrabold text-sky-400">
-              7+
-            </h2>
-
-            <p className="mt-2 text-slate-300">
-              Years Experience
-            </p>
-
-          </div>
-
-          <div className="rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-6 text-center">
-
-            <h2 className="text-4xl font-extrabold text-sky-400">
-              Daily
-            </h2>
-
-            <p className="mt-2 text-slate-300">
-              Market Insights
-            </p>
-
-          </div>
-
-          <div className="rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-6 text-center">
-
-            <h2 className="text-4xl font-extrabold text-sky-400">
-              24×7
-            </h2>
-
-            <p className="mt-2 text-slate-300">
-              Community Support
-            </p>
-
-          </div>
+          ))}
 
         </div>
 

@@ -56,7 +56,6 @@ export default async function AdminPage() {
       investment_status,
       investment_plan,
       investment_amount,
-      investment_return_amount,
       investment_start_date,
       investment_expiry_date,
       investment_payment_status,
@@ -240,12 +239,6 @@ export default async function AdminPage() {
                         {client.investment_amount && (
                           <p className="mt-1 text-xs text-slate-400">
                             Amount: ₹{Number(client.investment_amount).toLocaleString("en-IN")}
-                          </p>
-                        )}
-
-                        {client.investment_return_amount && (
-                          <p className="mt-1 text-xs text-green-400">
-                            Demo Return: {client.investment_return_amount}
                           </p>
                         )}
 

@@ -1,3 +1,12 @@
+import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = pageMetadata(
+  "Stock Market Learning Resources",
+  "Explore StockLearners educational resources on market basics, technical analysis, risk awareness and investor learning.",
+  "/services",
+);
+
 export default function ServicesPage() {
   const services = [
     {

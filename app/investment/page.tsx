@@ -3,12 +3,12 @@
 import { useRouter } from "next/navigation";
 
 const plans = [
-  { id: "25000", investment: 25000, returnAmount: "₹50,000 – ₹1,50,000" },
-  { id: "50000", investment: 50000, returnAmount: "₹1,00,000 – ₹3,00,000" },
-  { id: "100000", investment: 100000, returnAmount: "₹2,00,000 – ₹6,00,000" },
-  { id: "200000", investment: 200000, returnAmount: "₹4,00,000 – ₹12,00,000" },
-  { id: "300000", investment: 300000, returnAmount: "₹6,00,000 – ₹18,00,000" },
-  { id: "500000", investment: 500000, returnAmount: "₹10,00,000 – ₹30,00,000" },
+  { id: "25000", investment: 25000 },
+  { id: "50000", investment: 50000 },
+  { id: "100000", investment: 100000 },
+  { id: "200000", investment: 200000 },
+  { id: "300000", investment: 300000 },
+  { id: "500000", investment: 500000 },
 ];
 
 export default function InvestmentPage() {
@@ -41,21 +41,11 @@ export default function InvestmentPage() {
               key={plan.id}
               className="rounded-2xl border border-slate-700 bg-slate-900 p-6 shadow-lg"
             >
-              <p className="text-sm text-slate-400">Investment Amount</p>
+              <p className="text-sm text-slate-400">Inquiry amount</p>
 
               <h2 className="mt-1 text-3xl font-bold">
                 ₹{plan.investment.toLocaleString("en-IN")}
               </h2>
-
-              <div className="mt-5 rounded-xl bg-slate-800 p-4">
-                <p className="text-sm text-slate-400">
-                  Demo Return Amount
-                </p>
-
-                <p className="mt-1 text-xl font-semibold text-green-400">
-                  {plan.returnAmount}
-                </p>
-              </div>
 
               <button
                 onClick={() => handleInvest(plan)}
@@ -68,7 +58,12 @@ export default function InvestmentPage() {
         </div>
 
         <p className="mt-8 text-center text-xs text-slate-500">
-          Demo Investment Plans — amounts can be changed later.
+          This page submits an inquiry only. It does not accept or manage
+          investment funds and does not promise returns.
+        </p>
+        <p className="mt-3 text-center text-xs text-amber-300">
+          Educational purpose only. Not investment advice. Markets are subject
+          to risk.
         </p>
       </div>
     </main>

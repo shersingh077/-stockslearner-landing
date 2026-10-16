@@ -28,33 +28,14 @@ const plans: Record<
   string,
   {
     amount: number;
-    returnAmount: string;
   }
 > = {
-  "25000": {
-    amount: 25000,
-    returnAmount: "₹50,000 – ₹1,50,000",
-  },
-  "50000": {
-    amount: 50000,
-    returnAmount: "₹1,00,000 – ₹3,00,000",
-  },
-  "100000": {
-    amount: 100000,
-    returnAmount: "₹2,00,000 – ₹6,00,000",
-  },
-  "200000": {
-    amount: 200000,
-    returnAmount: "₹4,00,000 – ₹12,00,000",
-  },
-  "300000": {
-    amount: 300000,
-    returnAmount: "₹6,00,000 – ₹18,00,000",
-  },
-  "500000": {
-    amount: 500000,
-    returnAmount: "₹10,00,000 – ₹30,00,000",
-  },
+  "25000": { amount: 25000 },
+  "50000": { amount: 50000 },
+  "100000": { amount: 100000 },
+  "200000": { amount: 200000 },
+  "300000": { amount: 300000 },
+  "500000": { amount: 500000 },
 };
 
 export async function POST(request: Request) {
@@ -112,8 +93,6 @@ export async function POST(request: Request) {
       investment_status: status,
       investment_plan: plan,
       investment_amount: selectedPlan.amount,
-      investment_return_amount:
-        selectedPlan.returnAmount,
       investment_payment_status: status,
       investment_utr: utr || null,
       investment_payment_method:

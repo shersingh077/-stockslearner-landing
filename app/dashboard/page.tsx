@@ -73,7 +73,6 @@ export default async function DashboardPage() {
        investment_status,
        investment_plan,
        investment_amount,
-       investment_return_amount,
        investment_start_date,
        investment_expiry_date,
        investment_payment_status
@@ -264,15 +263,6 @@ export default async function DashboardPage() {
                   {client.investment_amount
                     ? `₹${Number(client.investment_amount).toLocaleString("en-IN")}`
                     : "-"}
-                </p>
-              </div>
-
-              <div className="rounded-lg bg-slate-900/70 p-4">
-                <p className="text-xs text-slate-500">
-                  RETURN AMOUNT
-                </p>
-                <p className="mt-1 font-semibold text-green-400">
-                  {client.investment_return_amount || "-"}
                 </p>
               </div>
 

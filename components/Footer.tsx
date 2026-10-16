@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Footer() {
   return (
     <footer className="bg-slate-950 border-t border-slate-800 py-16">
@@ -59,6 +61,26 @@ export default function Footer() {
                 About StockLearners
               </a>
 
+              <Link href="/learn" className="transition hover:text-blue-400">
+                Learning Guides
+              </Link>
+
+              <Link href="/privacy" className="transition hover:text-blue-400">
+                Privacy Policy
+              </Link>
+
+              <Link href="/terms" className="transition hover:text-blue-400">
+                Terms of Use
+              </Link>
+
+              <Link href="/disclaimer" className="transition hover:text-blue-400">
+                Risk Disclaimer
+              </Link>
+
+              <Link href="/refund-policy" className="transition hover:text-blue-400">
+                Refund Policy
+              </Link>
+
             </div>
 
           </div>
@@ -87,6 +109,11 @@ export default function Footer() {
         </div>
 
         <div className="mt-14 border-t border-slate-800 pt-8 text-center">
+
+          <p className="mb-4 text-sm leading-6 text-slate-400">
+            Educational purpose only. Not investment advice. Markets are
+            subject to risk. No returns are guaranteed.
+          </p>
 
           <p className="text-slate-500">
             © 2026 StockLearners. All Rights Reserved.

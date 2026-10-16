@@ -31,12 +31,12 @@ const plans = [
 ];
 
 const investmentPlans = [
-  { id: "25000", amount: 25000, returnAmount: "₹50,000 – ₹1,50,000" },
-  { id: "50000", amount: 50000, returnAmount: "₹1,00,000 – ₹3,00,000" },
-  { id: "100000", amount: 100000, returnAmount: "₹2,00,000 – ₹6,00,000" },
-  { id: "200000", amount: 200000, returnAmount: "₹4,00,000 – ₹12,00,000" },
-  { id: "300000", amount: 300000, returnAmount: "₹6,00,000 – ₹18,00,000" },
-  { id: "500000", amount: 500000, returnAmount: "₹10,00,000 – ₹30,00,000" },
+  { id: "25000", amount: 25000 },
+  { id: "50000", amount: 50000 },
+  { id: "100000", amount: 100000 },
+  { id: "200000", amount: 200000 },
+  { id: "300000", amount: 300000 },
+  { id: "500000", amount: 500000 },
 ];
 
 function AdminChatContent() {
@@ -473,7 +473,7 @@ function AdminChatContent() {
                                       key={plan.id}
                                       value={plan.id}
                                     >
-                                      ₹{plan.amount.toLocaleString("en-IN")} — Return {plan.returnAmount}
+                                      Inquiry amount: ₹{plan.amount.toLocaleString("en-IN")}
                                     </option>
                                   ))}
                                 </select>
@@ -485,24 +485,16 @@ function AdminChatContent() {
                                 );
 
                                 return selected ? (
-                                  <div className="mt-3 grid gap-2 sm:grid-cols-2">
-                                    <div className="rounded-lg bg-slate-900 p-3">
-                                      <p className="text-xs text-slate-400">
-                                        Investment Amount
-                                      </p>
-                                      <p className="mt-1 font-bold">
-                                        ₹{selected.amount.toLocaleString("en-IN")}
-                                      </p>
-                                    </div>
-
-                                    <div className="rounded-lg bg-slate-900 p-3">
-                                      <p className="text-xs text-slate-400">
-                                        Return Amount
-                                      </p>
-                                      <p className="mt-1 font-bold text-green-400">
-                                        {selected.returnAmount}
-                                      </p>
-                                    </div>
+                                  <div className="mt-3 rounded-lg bg-slate-900 p-3">
+                                  <p className="text-xs text-slate-400">
+                                    Inquiry amount
+                                  </p>
+                                  <p className="mt-1 font-bold">
+                                    ₹{selected.amount.toLocaleString("en-IN")}
+                                  </p>
+                                  <p className="mt-2 text-xs text-slate-400">
+                                    No return is promised or guaranteed.
+                                  </p>
                                   </div>
                                 ) : null;
                               })()}

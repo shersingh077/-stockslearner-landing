@@ -1,8 +1,32 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import JsonLd from "@/components/JsonLd";
+import { SITE_URL, pageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = pageMetadata(
+  "About StockLearners",
+  "Learn about StockLearners, our educational approach to stock market learning in India and our commitment to clear risk disclosures.",
+  "/about",
+);
 
 export default function AboutPage() {
+  const breadcrumb = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "About StockLearners",
+        item: `${SITE_URL}/about`,
+      },
+    ],
+  };
+
   return (
     <main className="flex min-h-screen items-center bg-slate-950 px-6 py-24 text-white">
+      <JsonLd data={breadcrumb} />
       <div className="mx-auto max-w-3xl">
         <Link
           href="/"
@@ -25,6 +49,11 @@ export default function AboutPage() {
           Our goal is to make stock market learning easier to approach for
           beginners and lifelong learners. Educational content is for learning
           purposes and is not individualized investment advice.
+        </p>
+        <p className="mt-5 leading-7 text-slate-400">
+          StockLearners does not promise profits or guaranteed returns. Verify
+          market information with official sources and consult a SEBI-registered
+          professional for advice tailored to your circumstances.
         </p>
 
         <Link

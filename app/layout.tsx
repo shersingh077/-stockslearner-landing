@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { Geist, Geist_Mono } from "next/font/google";
+import ConsentAnalytics from "@/components/ConsentAnalytics";
+import JsonLd from "@/components/JsonLd";
+import { SITE_NAME, SITE_TITLE, SITE_URL } from "@/lib/seo";
 import "./globals.css";
-
-const siteUrl = "https://stockslearner.online";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,40 +17,51 @@ const geistMono = Geist_Mono({
 
 const organizationSchema = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "StockLearners",
-  alternateName: ["Stock Learners", "Stock Learner"],
-  url: siteUrl,
-  logo: `${siteUrl}/logo.jpeg`,
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization`,
+      name: SITE_NAME,
+      alternateName: ["Stock Learners", "Stock Learner"],
+      url: SITE_URL,
+      logo: `${SITE_URL}/logo.jpeg`,
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      name: SITE_NAME,
+      alternateName: ["Stock Learners", "Stock Learner"],
+      url: SITE_URL,
+      publisher: { "@id": `${SITE_URL}/#organization` },
+      inLanguage: ["en-IN", "hi-IN"],
+    },
+  ],
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   applicationName: "StockLearners",
 
   title: {
-    default: "StockLearners - Learn Stock Market, SIP Plans, Live News & Research",
+    default: SITE_TITLE,
     template: "%s | StockLearners",
   },
 
   description:
-    "StockLearners helps you learn stock market in Hindi and English, explore SIP plans, follow live market news, and understand research and risk management in India.",
+    "StockLearners: stock market news and share market learning in India. Explore Nifty and Bank Nifty education, IPO GMP explainers, SIP tools and market research.",
 
   keywords: [
     "stocklearners",
     "stock learners",
     "stock learner",
-    "stock learning India",
-    "learn stock market in Hindi",
-    "stock market",
-    "stock market learning",
+    "share market news today",
+    "Nifty prediction",
+    "Bank Nifty levels",
+    "stock market Hindi",
+    "IPO GMP",
+    "SIP calculator",
     "SIP plans",
-    "live stock market news",
-    "stock market research",
-    "trading education",
-    "technical analysis",
-    "trading psychology",
-    "risk management",
+    "learn stock market in India",
   ],
 
   authors: [{ name: "StockLearners" }],
@@ -58,14 +69,22 @@ export const metadata: Metadata = {
   publisher: "StockLearners",
 
   alternates: {
-    canonical: siteUrl,
+    canonical: "/",
+    languages: {
+      "en-IN": "/",
+      "hi-IN": "/hi",
+      "x-default": "/",
+    },
+    types: {
+      "application/rss+xml": "/feed.xml",
+    },
   },
 
   openGraph: {
-    title: "StockLearners - Learn Stock Market, SIP Plans, Live News & Research",
+    title: SITE_TITLE,
     description:
-      "Learn stock market in Hindi and English with StockLearners. Explore SIP plans, live news, research, and risk management.",
-    url: siteUrl,
+      "Stock market news and share market education in India. Learn about Nifty, IPOs, SIPs and market risk with StockLearners.",
+    url: SITE_URL,
     siteName: "StockLearners",
     images: [
       {
@@ -81,7 +100,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "StockLearners - Learn Stock Market, SIP Plans, Live News & Research",
+    title: SITE_TITLE,
     description:
       "Learn stock market in Hindi and English with StockLearners. Explore SIP plans, live news, and market research.",
     images: ["/logo.jpeg"],
@@ -108,71 +127,12 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(organizationSchema).replace(/</g, "\\u003c"),
-          }}
-        />
-
-        {/* Google Analytics */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-S74LMKD309"
-          strategy="afterInteractive"
-        />
-
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-S74LMKD309');
-          `}
-        </Script>
-
-
-
-        {/* Meta Pixel */}
-        <Script id="meta-pixel" strategy="afterInteractive">
-          {`
-            !function(f,b,e,v,n,t,s)
-            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;
-            n.push=n;
-            n.loaded=!0;
-            n.version='2.0';
-            n.queue=[];
-            t=b.createElement(e);
-            t.async=!0;
-            t.src=v;
-            s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s);
-            }(window, document,'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-
-            fbq('init', '1595334955533581');
-            fbq('track', 'PageView');
-          `}
-        </Script>
-
+        <JsonLd data={organizationSchema} />
       </head>
 
       <body className="min-h-full flex flex-col">
-
-        <noscript>
-          <img
-            height="1"
-            width="1"
-            style={{ display: "none" }}
-            src="https://www.facebook.com/tr?id=1595334955533581&ev=PageView&noscript=1"
-            alt=""
-          />
-        </noscript>
-
-
-
         {children}
+        <ConsentAnalytics />
       </body>
     </html>
   );

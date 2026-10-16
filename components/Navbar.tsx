@@ -13,6 +13,7 @@ export default function Navbar() {
     { name: "Reviews", href: "#reviews" },
     { name: "FAQ", href: "#faq" },
     { name: "Contact", href: "#contact" },
+    { name: "Learning Guides", href: "/learn" },
     { name: "💰 Investment Plans", href: "/investment" },
     { name: "💬 Help & Contact", href: "/chat" },
   ];
@@ -85,6 +86,15 @@ export default function Navbar() {
           Join Telegram →
         </a>
 
+        <a
+          href="/hi"
+          lang="hi"
+          hrefLang="hi-IN"
+          className="hidden md:inline-flex rounded-lg border border-slate-300 px-3 py-2 text-sm font-semibold text-slate-700 hover:border-blue-500 hover:text-blue-600"
+        >
+          हिंदी
+        </a>
+
         {/* Mobile Button */}
 
         <button
@@ -114,6 +124,16 @@ export default function Navbar() {
               </a>
 
             ))}
+
+            <a
+              href="/hi"
+              lang="hi"
+              hrefLang="hi-IN"
+              onClick={() => setMenuOpen(false)}
+              className="px-6 py-3 font-semibold text-blue-600"
+            >
+              हिंदी में देखें
+            </a>
 
             <div className="px-6 pt-4">
 

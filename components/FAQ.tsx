@@ -1,42 +1,55 @@
-export default function FAQ() {
-  const faqs = [
-    {
-      question: "What is StockLearners?",
-      answer:
-        "StockLearners is a stock market learning platform that provides educational content, market insights and trading knowledge.",
-    },
-    {
-      question: "Who can join?",
-      answer:
-        "Anyone interested in learning about the stock market, from beginners to experienced traders.",
-    },
-    {
-      question: "Do you provide daily updates?",
-      answer:
-        "Yes, we regularly share educational market updates and learning resources through our community.",
-    },
-    {
-      question: "Is trading risky?",
-      answer:
-        "Yes. Trading and investing involve risk. Always manage your capital carefully and never trade without proper knowledge.",
-    },
-    {
-      question: "How do I contact StockLearners?",
-      answer:
-        "You can connect with us anytime through our official Telegram community.",
-    },
-    {
-      question: "Is the content beginner friendly?",
-      answer:
-        "Absolutely. Our content is designed to help beginners build a strong foundation step by step.",
-    },
-  ];
+import JsonLd from "@/components/JsonLd";
 
+const faqs = [
+  {
+    question: "What is StockLearners?",
+    answer:
+      "StockLearners is a stock market learning platform that provides educational content, market insights and trading knowledge.",
+  },
+  {
+    question: "Who can join?",
+    answer:
+      "Anyone interested in learning about the stock market, from beginners to experienced traders.",
+  },
+  {
+    question: "Do you provide daily updates?",
+    answer:
+      "We share educational market updates and learning resources through our community. Market data or news availability may vary.",
+  },
+  {
+    question: "Is trading risky?",
+    answer:
+      "Yes. Trading and investing involve risk. Always manage your capital carefully and never trade without proper knowledge.",
+  },
+  {
+    question: "How do I contact StockLearners?",
+    answer:
+      "You can connect with us through the contact options listed on our official website.",
+  },
+  {
+    question: "Is the content beginner friendly?",
+    answer:
+      "Our educational content is designed to help beginners build a foundation step by step. It is not individualized investment advice.",
+  },
+];
+
+export default function FAQ() {
   return (
     <section
       id="faq"
       className="bg-slate-50 py-28 px-6"
     >
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: faqs.map(({ question, answer }) => ({
+            "@type": "Question",
+            name: question,
+            acceptedAnswer: { "@type": "Answer", text: answer },
+          })),
+        }}
+      />
       <div className="max-w-5xl mx-auto">
 
         <div className="text-center">
