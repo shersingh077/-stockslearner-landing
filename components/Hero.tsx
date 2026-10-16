@@ -67,10 +67,12 @@ export default function Hero() {
               </a>
 
               <a
-                href="/contact"
+                href="https://t.me/prime_stocks"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="rounded-xl border border-white/30 px-8 py-4 text-lg font-semibold text-white hover:bg-white hover:text-black transition-all duration-300"
               >
-                Contact StockLearners
+                Contact @prime_stocks
               </a>
 
             </div>
