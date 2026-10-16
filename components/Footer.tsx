@@ -65,11 +65,55 @@ export default function Footer() {
                 Learning Guides
               </Link>
 
+              <Link href="/news" className="transition hover:text-blue-400">
+                News Sources
+              </Link>
+
+              <Link
+                href="/market-today"
+                className="transition hover:text-blue-400"
+              >
+                Market Today
+              </Link>
+
+              <Link href="/stock" className="transition hover:text-blue-400">
+                Stock Guides
+              </Link>
+
+              <Link
+                href="/screener"
+                className="transition hover:text-blue-400"
+              >
+                Company Screener
+              </Link>
+
+              <Link href="/sector" className="transition hover:text-blue-400">
+                Sector Guides
+              </Link>
+
+              <Link href="/ipo" className="transition hover:text-blue-400">
+                IPO Information
+              </Link>
+
+              <Link
+                href="/nifty-levels-tomorrow"
+                className="transition hover:text-blue-400"
+              >
+                Nifty Levels Guide
+              </Link>
+
               <Link
                 href="/calculators"
                 className="transition hover:text-blue-400"
               >
                 Calculators
+              </Link>
+
+              <Link
+                href="/watchlist"
+                className="transition hover:text-blue-400"
+              >
+                Watchlist
               </Link>
 
               <Link href="/privacy" className="transition hover:text-blue-400">

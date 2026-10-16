@@ -52,14 +52,24 @@ The Supabase secret key is privileged and must only be used by server code.
 
 - `/` and `/hi` — English and Hindi landing pages
 - `/learn` and `/learn/[slug]` — original educational articles
+- `/news` — official source directory; no third-party live feed is connected
+- `/market-today` — official market-checklist, not a generated quote report
+- `/stock` and `/stock/[symbol]` — selected static company references
+- `/screener` — selected company directory filter, not a financial ranking
+- `/sector` and `/sector/[slug]` — sector explainers and linked companies
+- `/ipo` — IPO verification guide with official source links
+- `/nifty-levels-tomorrow` — index-level research checklist, no generated levels
+- `/watchlist` — browser-local stock bookmarks, not synced to an account
+- `/calculators` — SIP, lump-sum, CAGR, brokerage, margin, position-size and
+  retirement illustrations
 - `/feed.xml`, `/robots.txt`, `/sitemap.xml` — feed and crawler endpoints
 - `/about`, `/contact`, `/privacy`, `/terms`, `/disclaimer`, `/refund-policy`
 - `/login`, `/register`, `/dashboard`, `/chat`, `/admin` — account areas
 
 The RSS feed contains educational guides, not news. Live quotes, licensed news
-feeds, automatic daily market reports, calculators, online payment processing,
-email campaigns and lead capture are not yet connected; do not present sample
-or unverified data as live market information.
+feeds, automated market reports, backend-synced watchlists, online payment
+processing, email campaigns, lead capture and market alerts are not yet
+connected; do not present sample or unverified data as live market information.
 
 ## Deploy to Vercel
 
