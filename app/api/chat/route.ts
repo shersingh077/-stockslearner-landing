@@ -2,6 +2,12 @@ import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
 import { createClient } from "@supabase/supabase-js";
 import crypto from "node:crypto";
+import {
+  CHAT_IMAGE_BUCKET,
+  MAX_CHAT_IMAGE_SIZE,
+  hasValidImageSignature,
+  isChatImageType,
+} from "@/lib/chat-upload";
 
 export const runtime = "nodejs";
 
@@ -135,13 +141,7 @@ export async function POST(request: Request) {
       const file = formData.get("screenshot");
 
       if (file instanceof File && file.size > 0) {
-        const allowedTypes = [
-          "image/jpeg",
-          "image/png",
-          "image/webp",
-        ];
-
-        if (!allowedTypes.includes(file.type)) {
+        if (!isChatImageType(file.type)) {
           return NextResponse.json(
             {
               error:
@@ -176,7 +176,7 @@ export async function POST(request: Request) {
 
         const { error: uploadError } =
           await supabase.storage
-            .from("payment-screenshots")
+            .from(CHAT_IMAGE_BUCKET)
             .upload(fileName, fileBuffer, {
               contentType: file.type,
               upsert: false,
@@ -202,6 +202,13 @@ export async function POST(request: Request) {
         attachmentName = file.name;
         messageType = "payment";
       }
+
+      if (
+        attachmentUrl &&
+        !attachmentName
+      ) {
+        attachmentName = "Image attachment";
+      }
     } else {
       const body = await request.json();
 
@@ -212,6 +219,81 @@ export async function POST(request: Request) {
       paymentUtr = String(
         body?.payment_utr || ""
       ).trim();
+
+      const attachmentPath = String(
+        body?.attachment_path || ""
+      ).trim();
+
+      if (attachmentPath) {
+        if (
+          attachmentPath.includes("..") ||
+          attachmentPath.includes("\\") ||
+          !attachmentPath.startsWith(`${clientId}/`)
+        ) {
+          return NextResponse.json(
+            { error: "Invalid photo attachment." },
+            { status: 400 }
+          );
+        }
+
+        const { data: fileInfo, error: fileInfoError } = await supabase.storage
+          .from(CHAT_IMAGE_BUCKET)
+          .info(attachmentPath);
+
+        const fileType = fileInfo?.contentType || "";
+
+        if (
+          fileInfoError ||
+          !fileInfo ||
+          !isChatImageType(fileType) ||
+          typeof fileInfo.size !== "number" ||
+          !Number.isSafeInteger(fileInfo.size) ||
+          fileInfo.size > MAX_CHAT_IMAGE_SIZE ||
+          fileInfo.size < 1
+        ) {
+          return NextResponse.json(
+            { error: "The uploaded image is missing or exceeds the 10 MB limit." },
+            { status: 400 }
+          );
+        }
+
+        const { data: uploadedImage, error: imageReadError } = await supabase.storage
+          .from(CHAT_IMAGE_BUCKET)
+          .download(attachmentPath);
+
+        if (imageReadError || !uploadedImage) {
+          console.error("CHAT IMAGE VALIDATION READ ERROR:", imageReadError);
+          return NextResponse.json(
+            { error: "Unable to validate the uploaded image. Please try again." },
+            { status: 503 }
+          );
+        }
+
+        const imageBytes = new Uint8Array(
+          await uploadedImage.slice(0, 12).arrayBuffer()
+        );
+
+        if (!hasValidImageSignature(fileType, imageBytes)) {
+          const { error: cleanupError } = await supabase.storage
+            .from(CHAT_IMAGE_BUCKET)
+            .remove([attachmentPath]);
+
+          if (cleanupError) {
+            console.error("INVALID CHAT IMAGE CLEANUP ERROR:", cleanupError);
+          }
+
+          return NextResponse.json(
+            { error: "The uploaded file is not a valid JPG, PNG or WEBP image." },
+            { status: 400 }
+          );
+        }
+
+        attachmentUrl = attachmentPath;
+        attachmentName = String(body?.attachment_name || "Image attachment")
+          .replace(/[\u0000-\u001f\u007f]/g, "")
+          .trim()
+          .slice(0, 255);
+      }
     }
 
     if (!message && !paymentUtr && !attachmentUrl) {
@@ -224,7 +306,14 @@ export async function POST(request: Request) {
       );
     }
 
-    if (paymentUtr || attachmentUrl) {
+    if (message.length > 4000 || paymentUtr.length > 120) {
+      return NextResponse.json(
+        { error: "Message must be 4,000 characters or fewer and UTR 120 or fewer." },
+        { status: 400 }
+      );
+    }
+
+    if (paymentUtr || (attachmentUrl && contentType.includes("multipart/form-data"))) {
       messageType = "payment";
     }
 
@@ -243,7 +332,7 @@ export async function POST(request: Request) {
 
     const finalMessage =
       message ||
-      "Payment details submitted.";
+      (paymentUtr ? "Payment details submitted." : "Image attached.");
 
     const { data, error } = await supabase
       .from("chat_messages")
@@ -264,6 +353,16 @@ export async function POST(request: Request) {
 
     if (error) {
       console.error("CHAT POST ERROR:", error);
+
+      if (attachmentUrl && !contentType.includes("multipart/form-data")) {
+        const { error: cleanupError } = await supabase.storage
+          .from(CHAT_IMAGE_BUCKET)
+          .remove([attachmentUrl]);
+
+        if (cleanupError) {
+          console.error("CHAT UPLOAD CLEANUP ERROR:", cleanupError);
+        }
+      }
 
       return NextResponse.json(
         { error: error.message },

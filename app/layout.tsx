@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import ConsentAnalytics from "@/components/ConsentAnalytics";
 import JsonLd from "@/components/JsonLd";
+import SiteChrome from "@/components/SiteChrome";
 import { SITE_NAME, SITE_TITLE, SITE_URL } from "@/lib/seo";
 import "./globals.css";
 
@@ -131,7 +132,7 @@ export default function RootLayout({
       </head>
 
       <body className="min-h-full flex flex-col">
-        {children}
+        <SiteChrome>{children}</SiteChrome>
         <ConsentAnalytics />
       </body>
     </html>

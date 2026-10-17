@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import { useRouter } from "next/navigation";
+import { getSafeNextPath } from "@/lib/safe-next-path";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -31,7 +32,14 @@ export default function LoginPage() {
         return;
       }
 
-      router.push("/dashboard");
+      const requestedPath = new URLSearchParams(window.location.search).get(
+        "next",
+      );
+      const nextPath = getSafeNextPath(
+        requestedPath,
+        window.location.origin,
+      );
+      router.push(nextPath);
       router.refresh();
     } catch (err) {
       console.error(err);
@@ -106,7 +114,7 @@ export default function LoginPage() {
               href="/register"
               className="text-sm text-blue-400 hover:text-blue-300"
             >
-              Don't have an account? Register
+              Don&apos;t have an account? Register
             </a>
           </div>
         </div>

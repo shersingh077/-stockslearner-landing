@@ -6,55 +6,45 @@ export default function Contact() {
     >
       <div className="max-w-5xl mx-auto text-center">
 
-        <span className="inline-flex rounded-full bg-blue-100 text-blue-700 px-5 py-2 font-semibold">
+        <span className="inline-flex rounded-full bg-blue-100 px-5 py-2 font-semibold text-blue-700">
           Contact Us
         </span>
 
-        <h2 className="mt-6 text-5xl font-extrabold text-slate-900">
-
-          Ready To Join
-
-          <span className="text-blue-600">
-            {" "}StockLearners?
-          </span>
-
+        <h2 className="mt-6 text-3xl font-extrabold tracking-tight text-slate-950 sm:text-5xl">
+          Need a hand with StockLearners?
         </h2>
 
-        <p className="mt-6 max-w-3xl mx-auto text-lg leading-8 text-slate-600">
-
-          Join our official Telegram community to receive
-          educational content, market insights and regular updates.
-
+        <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
+          Start a conversation with our team from the website, or reach us on
+          Telegram. Please don&apos;t share passwords, OTPs or sensitive
+          financial information in chat.
         </p>
 
-        <div className="mt-14 flex flex-col justify-center gap-5 sm:flex-row">
+        <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
+          <a
+            href="/chat"
+            className="inline-flex min-h-12 items-center justify-center rounded-xl bg-blue-700 px-7 py-3 font-bold text-white shadow-lg shadow-blue-700/15 transition-colors hover:bg-blue-800"
+          >
+            Chat with our team
+          </a>
+
           <a
             href="https://t.me/+q1uO_JMMmfIwNDE1"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-xl bg-blue-600 px-10 py-4 text-lg font-bold text-white transition-all duration-300 hover:scale-105 hover:bg-blue-700 shadow-lg shadow-blue-500/20"
+            className="inline-flex min-h-12 items-center justify-center rounded-xl border border-slate-300 px-7 py-3 font-semibold text-slate-800 transition-colors hover:border-slate-400 hover:bg-slate-50"
           >
-            🚀 Join Telegram
+            Join Telegram community
           </a>
 
           <a
             href="https://t.me/prime_stocks"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-xl border border-slate-300 px-10 py-4 text-lg font-semibold text-slate-800 transition-all duration-300 hover:bg-slate-900 hover:text-white"
+            className="inline-flex min-h-12 items-center justify-center rounded-xl border border-slate-300 px-7 py-3 font-semibold text-slate-800 transition-colors hover:border-slate-400 hover:bg-slate-50"
           >
             Contact @prime_stocks
           </a>
-
-          <a
-            href="https://wa.me/919999999999"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-xl border border-slate-300 px-10 py-4 text-lg font-semibold text-slate-800 transition-all duration-300 hover:bg-slate-900 hover:text-white"
-          >
-            💬 WhatsApp
-          </a>
-
         </div>
 
       </div>

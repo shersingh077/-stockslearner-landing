@@ -1,11 +1,14 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import Link from "next/link";
+import { getSafeNextPath } from "@/lib/safe-next-path";
 
 export default function RegisterPage() {
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
+  const [nextPath, setNextPath] = useState("/dashboard");
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -46,6 +49,12 @@ export default function RegisterPage() {
       // Registration successful
       setMessage(
         "Registration successful! Your account has been created."
+      );
+      const requestedPath = new URLSearchParams(window.location.search).get(
+        "next",
+      );
+      setNextPath(
+        getSafeNextPath(requestedPath, window.location.origin),
       );
 
       // Form reset
@@ -201,8 +210,17 @@ export default function RegisterPage() {
 
             {/* Success */}
             {message && (
-              <div className="rounded-lg bg-green-500/10 p-3 text-sm text-green-400">
+              <div
+                className="rounded-lg bg-green-500/10 p-3 text-sm text-green-400"
+                role="status"
+              >
                 {message}
+                <Link
+                  href={`/login?next=${encodeURIComponent(nextPath)}`}
+                  className="mt-3 block font-semibold text-green-300 underline underline-offset-4"
+                >
+                  Sign in to continue
+                </Link>
               </div>
             )}
 

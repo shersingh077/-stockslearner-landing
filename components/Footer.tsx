@@ -1,187 +1,110 @@
 import Link from "next/link";
 
+const resourceLinks = [
+  { href: "/learn", label: "Learning guides" },
+  { href: "/news", label: "Official market sources" },
+  { href: "/market-today", label: "Market checklist" },
+  { href: "/stock", label: "Stock guides" },
+  { href: "/sector", label: "Sector guides" },
+  { href: "/ipo", label: "IPO information" },
+  { href: "/screener", label: "Company directory" },
+  { href: "/calculators", label: "Calculators" },
+  { href: "/watchlist", label: "Personal watchlist" },
+  { href: "/nifty-levels-tomorrow", label: "Nifty levels guide" },
+];
+
+const policyLinks = [
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
+  { href: "/privacy", label: "Privacy policy" },
+  { href: "/terms", label: "Terms of use" },
+  { href: "/disclaimer", label: "Risk disclaimer" },
+  { href: "/refund-policy", label: "Refund policy" },
+];
+
 export default function Footer() {
   return (
-    <footer className="bg-slate-950 border-t border-slate-800 py-16">
-
-      <div className="max-w-7xl mx-auto px-6">
-
-        <div className="grid gap-12 md:grid-cols-3">
-
-          {/* Brand */}
-
+    <footer className="border-t border-slate-800 bg-slate-950 text-slate-300">
+      <div className="mx-auto max-w-7xl px-5 py-14 sm:px-8 sm:py-16">
+        <div className="grid gap-12 md:grid-cols-[1.15fr_1fr_1fr]">
           <div>
-
-            <h2 className="text-3xl font-extrabold text-blue-500">
+            <Link
+              href="/"
+              className="inline-flex rounded-md text-2xl font-extrabold tracking-tight text-white"
+            >
               StockLearners
-            </h2>
-
-            <p className="mt-5 leading-7 text-slate-400">
-              Learn stock market with professional educational content,
-              technical analysis and disciplined risk management.
+            </Link>
+            <p className="mt-4 max-w-sm text-sm leading-7 text-slate-400">
+              A learning-first market education portal with practical tools,
+              selected company references and links to official sources.
             </p>
-
+            <p className="mt-5 max-w-sm text-xs leading-6 text-slate-500">
+              Educational information only—not personalized investment advice.
+              Investments are subject to market risk.
+            </p>
           </div>
 
-          {/* Quick Links */}
+          <nav aria-label="Learning resources">
+            <h2 className="text-sm font-bold uppercase tracking-[0.14em] text-white">
+              Explore
+            </h2>
+            <ul className="mt-5 grid grid-cols-2 gap-x-4 gap-y-3 text-sm">
+              {resourceLinks.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="rounded-sm text-slate-400 transition-colors hover:text-sky-300"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
           <div>
+            <nav aria-label="Company and policies">
+              <h2 className="text-sm font-bold uppercase tracking-[0.14em] text-white">
+                StockLearners
+              </h2>
+              <ul className="mt-5 grid grid-cols-2 gap-x-4 gap-y-3 text-sm">
+                {policyLinks.map((item) => (
+                  <li key={item.href}>
+                    <Link
+                      href={item.href}
+                      className="rounded-sm text-slate-400 transition-colors hover:text-sky-300"
+                    >
+                      {item.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
 
-            <h3 className="mb-5 text-xl font-bold text-white">
-              Quick Links
-            </h3>
-
-            <div className="flex flex-col gap-3 text-slate-400">
-
-              <a href="#home" className="transition hover:text-blue-400">
-                Home
-              </a>
-
-              <a href="#services" className="transition hover:text-blue-400">
-                Services
-              </a>
-
-              <a href="#process" className="transition hover:text-blue-400">
-                Process
-              </a>
-
-              <a href="#reviews" className="transition hover:text-blue-400">
-                Reviews
-              </a>
-
-              <a href="#faq" className="transition hover:text-blue-400">
-                FAQ
-              </a>
-
-              <a href="#contact" className="transition hover:text-blue-400">
-                Contact
-              </a>
-
-              <a href="/about" className="transition hover:text-blue-400">
-                About StockLearners
-              </a>
-
-              <Link href="/learn" className="transition hover:text-blue-400">
-                Learning Guides
-              </Link>
-
-              <Link href="/news" className="transition hover:text-blue-400">
-                News Sources
-              </Link>
-
+            <div className="mt-8 flex flex-wrap gap-3">
               <Link
-                href="/market-today"
-                className="transition hover:text-blue-400"
+                href="/chat"
+                className="inline-flex min-h-11 items-center justify-center rounded-xl bg-blue-700 px-4 py-2 text-sm font-bold text-white transition-colors hover:bg-blue-600"
               >
-                Market Today
+                Chat with our team
               </Link>
-
-              <Link href="/stock" className="transition hover:text-blue-400">
-                Stock Guides
-              </Link>
-
-              <Link
-                href="/screener"
-                className="transition hover:text-blue-400"
+              <a
+                href="https://t.me/prime_stocks"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-11 items-center justify-center rounded-xl border border-slate-700 px-4 py-2 text-sm font-semibold text-slate-200 transition-colors hover:border-slate-500 hover:bg-slate-900"
               >
-                Company Screener
-              </Link>
-
-              <Link href="/sector" className="transition hover:text-blue-400">
-                Sector Guides
-              </Link>
-
-              <Link href="/ipo" className="transition hover:text-blue-400">
-                IPO Information
-              </Link>
-
-              <Link
-                href="/nifty-levels-tomorrow"
-                className="transition hover:text-blue-400"
-              >
-                Nifty Levels Guide
-              </Link>
-
-              <Link
-                href="/calculators"
-                className="transition hover:text-blue-400"
-              >
-                Calculators
-              </Link>
-
-              <Link
-                href="/watchlist"
-                className="transition hover:text-blue-400"
-              >
-                Watchlist
-              </Link>
-
-              <Link href="/privacy" className="transition hover:text-blue-400">
-                Privacy Policy
-              </Link>
-
-              <Link href="/terms" className="transition hover:text-blue-400">
-                Terms of Use
-              </Link>
-
-              <Link href="/disclaimer" className="transition hover:text-blue-400">
-                Risk Disclaimer
-              </Link>
-
-              <Link href="/refund-policy" className="transition hover:text-blue-400">
-                Refund Policy
-              </Link>
-
+                Telegram contact
+              </a>
             </div>
-
           </div>
-
-          {/* Community */}
-
-          <div>
-
-            <h3 className="mb-5 text-xl font-bold text-white">
-              Community
-            </h3>
-
-            <p className="mb-6 text-slate-400">
-              Join our official Telegram community.
-            </p>            <a
-              href="https://t.me/+q1uO_JMMmfIwNDE1"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex rounded-xl bg-blue-600 px-8 py-4 font-bold text-white transition-all duration-300 hover:scale-105 hover:bg-blue-700 shadow-lg shadow-blue-500/20"
-            >
-              🚀 Join Telegram
-            </a>
-            <a
-              href="https://t.me/prime_stocks"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-3 inline-flex text-sky-300 underline underline-offset-4 transition hover:text-white"
-            >
-              Contact @prime_stocks
-            </a>
-
-          </div>
-
         </div>
 
-        <div className="mt-14 border-t border-slate-800 pt-8 text-center">
-
-          <p className="mb-4 text-sm leading-6 text-slate-400">
-            Educational purpose only. Not investment advice. Markets are
-            subject to risk. No returns are guaranteed.
-          </p>
-
-          <p className="text-slate-500">
-            © 2026 StockLearners. All Rights Reserved.
-          </p>
-
+        <div className="mt-12 flex flex-col gap-3 border-t border-slate-800 pt-6 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+          <p>© 2026 StockLearners. All rights reserved.</p>
+          <p>Learn carefully. Verify information. Understand the risks.</p>
         </div>
-
       </div>
-
     </footer>
   );
 }

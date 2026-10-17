@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, Suspense, useEffect, useState } from "react";
+import { FormEvent, Suspense, useCallback, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 type Client = {
@@ -41,6 +41,7 @@ const investmentPlans = [
 
 function AdminChatContent() {
   const searchParams = useSearchParams();
+  const requestedClientId = searchParams.get("client_id");
 
   const [clients, setClients] = useState<Client[]>([]);
   const [selectedClient, setSelectedClient] = useState<Client | null>(null);
@@ -55,7 +56,7 @@ function AdminChatContent() {
   const [selectedPlan, setSelectedPlan] = useState("3_months");
   const [selectedInvestmentPlan, setSelectedInvestmentPlan] = useState("25000");
 
-  async function loadClients() {
+  const loadClients = useCallback(async () => {
     try {
       const response = await fetch("/api/admin/chat", {
         cache: "no-store",
@@ -71,11 +72,9 @@ function AdminChatContent() {
       const clientList = data.clients || [];
       setClients(clientList);
 
-      const clientId = searchParams.get("client_id");
-
-      if (clientId) {
+      if (requestedClientId) {
         const found = clientList.find(
-          (client: Client) => client.id === clientId
+          (client: Client) => client.id === requestedClientId
         );
 
         if (found) {
@@ -87,12 +86,12 @@ function AdminChatContent() {
     } finally {
       setLoadingClients(false);
     }
-  }
+  }, [requestedClientId]);
 
-  async function loadMessages(
+  const loadMessages = useCallback(async (
     clientId: string,
     showLoading = false
-  ) {
+  ) => {
     if (showLoading) {
       setLoadingMessages(true);
     }
@@ -131,23 +130,32 @@ function AdminChatContent() {
         setLoadingMessages(false);
       }
     }
-  }
+  }, []);
 
   useEffect(() => {
-    loadClients();
-  }, [searchParams]);
+    const timer = window.setTimeout(() => {
+      void loadClients();
+    }, 0);
+
+    return () => window.clearTimeout(timer);
+  }, [loadClients]);
 
   useEffect(() => {
     if (!selectedClient) return;
 
-    loadMessages(selectedClient.id, true);
+    const initialLoad = window.setTimeout(() => {
+      void loadMessages(selectedClient.id, true);
+    }, 0);
 
     const interval = setInterval(() => {
-      loadMessages(selectedClient.id, false);
+      void loadMessages(selectedClient.id, false);
     }, 5000);
 
-    return () => clearInterval(interval);
-  }, [selectedClient]);
+    return () => {
+      window.clearTimeout(initialLoad);
+      clearInterval(interval);
+    };
+  }, [loadMessages, selectedClient]);
 
   async function sendMessage(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -561,7 +569,7 @@ function AdminChatContent() {
 
                             </div>
                           ) : (
-                            (item.payment_utr || item.attachment_url) && (
+                            (item.payment_utr || item.message_type === "payment") && (
                               <div className="mt-3 rounded-xl border border-yellow-500/30 bg-yellow-500/5 p-4">
 
                                 <p className="font-bold text-yellow-400">
@@ -589,7 +597,7 @@ function AdminChatContent() {
                                       rel="noopener noreferrer"
                                       className="inline-block rounded-lg bg-yellow-500 px-4 py-2 text-xs font-bold text-black hover:bg-yellow-400"
                                     >
-                                      👁 View Payment Screenshot
+                                      👁 View {item.attachment_name || "attached photo"}
                                     </a>
                                   </div>
                                 )}
@@ -656,6 +664,24 @@ function AdminChatContent() {
                               </div>
                             )
                           )}
+
+                          {item.attachment_url &&
+                            item.message_type !== "payment" &&
+                            !item.payment_utr &&
+                            item.enquiry_type !== "investment" && (
+                              <div className="mt-3">
+                                <a
+                                  href={`/api/chat/file?path=${encodeURIComponent(
+                                    item.attachment_url,
+                                  )}`}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="inline-block rounded-lg bg-blue-600 px-4 py-2 text-xs font-bold text-white hover:bg-blue-500"
+                                >
+                                  👁 View {item.attachment_name || "attached photo"}
+                                </a>
+                              </div>
+                            )}
 
                           <p className="mt-2 text-[10px] opacity-60">
                             {new Date(item.created_at).toLocaleString(

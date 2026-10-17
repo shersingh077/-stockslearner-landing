@@ -16,14 +16,21 @@ export default function ContactPage() {
         <h1 className="mt-8 text-4xl font-bold">Contact StockLearners</h1>
         <p className="mt-5 max-w-2xl leading-8 text-slate-300">
           For questions about your account, community access or educational
-          content, message our official Telegram community. Do not send
-          passwords, OTPs or sensitive financial information in a public chat.
+          content, start a conversation through the website or use our official
+          Telegram links. Do not send passwords, OTPs or sensitive financial
+          information in chat.
         </p>
+        <Link
+          href="/chat"
+          className="mt-8 inline-flex rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-500"
+        >
+          Start a website chat
+        </Link>
         <a
           href="https://t.me/+q1uO_JMMmfIwNDE1"
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-8 inline-flex rounded-xl bg-blue-600 px-6 py-3 font-semibold text-white hover:bg-blue-500"
+          className="mt-4 inline-flex rounded-xl border border-slate-600 px-6 py-3 font-semibold text-white hover:bg-slate-800"
         >
           Join Telegram community
         </a>
